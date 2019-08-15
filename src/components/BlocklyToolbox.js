@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { Block, Xml, Category } from '../ToolBoxTagsComponents';
+import { Block, Xml, Category } from './ToolBoxTagsComponents';
 
 let styles = null;
 

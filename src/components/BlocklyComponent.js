@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BlocklyDrawer from './BlocklyDrawer';
+import { Count } from '../blocks/Loop';
 
 export default class BlocklyComponent extends Component {
   constructor() {
@@ -44,6 +45,7 @@ export default class BlocklyComponent extends Component {
             startScale: 0.7,
           }
         }}
+        tools={[Count]}
         style={{ height: `${this.state.height}px` }}
       >
       </BlocklyDrawer>
