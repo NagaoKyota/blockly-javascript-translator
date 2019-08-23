@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import BlocklyDrawer from './BlocklyDrawer';
 import { Count } from '../blocks/Loop';
 
@@ -21,6 +22,28 @@ export default class BlocklyComponent extends Component {
   componentDidMount() {
     window.addEventListener('resize', this.updateHeight);
     this.updateHeight();
+
+
+    ReactDOM.render(
+      <BlocklyDrawer
+      showCategories={false}
+      injectOptions = {{
+        grid: {
+          spacing: 20,
+          length: 3,
+          colour: '#ccc',
+          snap: true
+        },
+        scrollbars: false,
+        zoom: {
+          startScale: 0.7,
+        }
+      }}
+      tools={[Count]}
+      style={{ height: `100%` }}
+      />,
+      document.getElementById('BlocklyRoot')
+    );
   }
 
   componentWillUnmount() {
@@ -29,26 +52,7 @@ export default class BlocklyComponent extends Component {
 
   render() {
     return (
-      <BlocklyDrawer
-        showCategories={false}
-        injectOptions = {{
-          horizontalLayout: false,
-          grid: {
-            spacing: 20,
-            length: 3,
-            colour: '#ccc',
-            snap: true
-          },
-          trashcan: true,
-          scrollbars: false,
-          zoom: {
-            startScale: 0.7,
-          }
-        }}
-        tools={[Count]}
-        style={{ height: `${this.state.height}px` }}
-      >
-      </BlocklyDrawer>
+      <div id="BlocklyRoot" style={{ height: `${this.state.height}px` }} />
     );
   };
 };
