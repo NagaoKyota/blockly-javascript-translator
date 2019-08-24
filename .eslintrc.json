@@ -1,6 +1,7 @@
 {
   "extends": "airbnb",
   "rules": {
+    "class-methods-use-this": ["off"],
     "no-undef": ["off"],
     "quotes": ["off"],
     "react/destructuring-assignment": ["off"],

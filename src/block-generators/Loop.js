@@ -45,9 +45,7 @@ export const generateCount = (defs = {}) => ({
     const max = block.getFieldValue('COUNT');
     const counter = _.uniqueId('counter_');
     const code = `
-      resetCounter();
       for(var ${counter} = 1; ${counter} <= ${max}; ${counter}++) {
-        countUp({id: "${block.id}"});
         ${branch}
       }
     `;
