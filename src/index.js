@@ -6,4 +6,4 @@ const App = () => (
   <BlocklyComponent />
 );
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, window.document.getElementById('root'));

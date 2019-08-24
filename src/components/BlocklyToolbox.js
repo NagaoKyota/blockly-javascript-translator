@@ -19,13 +19,11 @@ export default class BlocklyToolbox extends Component {
         result[item.category].push(item.name);
         return result;
       },
-      {}
-    );
+      {});
 
     const elements = Object.keys(groupedByCategory).map((key) => {
-      const blocks = groupedByCategory[key].map((type) => {
-        return <Block type={type} key={type} />;
-      });
+      const blocks = groupedByCategory[key].map((type) => <Block type={type} key={type} />);
+      // eslint-disable-next-line no-mixed-operators, max-len
       const categoryAppearance = appearance && appearance.categories && appearance.categories[key] || {};
       return (
         <Category
