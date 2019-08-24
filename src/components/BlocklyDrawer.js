@@ -31,17 +31,17 @@ class BlocklyDrawer extends Component {
 
       this.workspacePlayground = Blockly.inject(
         this.content,
-        Object.assign(
-          { toolbox: this.toolbox }, this.props.injectOptions
-        )
+        {
+          toolbox: this.toolbox, ...this.props.injectOptions,
+        },
       );
 
       if (this.props.workspaceXML) {
         Blockly.Xml.domToWorkspace(
           Blockly.Xml.textToDom(
-            this.props.workspaceXML
+            this.props.workspaceXML,
           ),
-          this.workspacePlayground
+          this.workspacePlayground,
         );
       }
 
@@ -81,14 +81,14 @@ class BlocklyDrawer extends Component {
   }
 
   render() {
-    const wrapperStyle = Object.assign(
-      {}, styles.wrapper, this.props.style,
-    );
+    const wrapperStyle = {
+      ...styles.wrapper, ...this.props.style,
+    };
     return (
       <div
         className={this.props.className}
         style={wrapperStyle}
-        ref={wrapper => { this.wrapper = wrapper }}
+        ref={(wrapper) => { this.wrapper = wrapper; }}
       >
         <div
           style={styles.content}

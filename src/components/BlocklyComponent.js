@@ -7,15 +7,15 @@ export default class BlocklyComponent extends Component {
   constructor() {
     super();
     this.updateHeight = this.updateHeight.bind(this);
-    this.buffer = 20
+    this.buffer = 20;
     this.state = {
-      height: window.innerHeight - this.buffer
+      height: window.innerHeight - this.buffer,
     };
   }
 
   updateHeight() {
     this.setState({
-      height: window.innerHeight - this.buffer
+      height: window.innerHeight - this.buffer,
     });
   }
 
@@ -26,23 +26,23 @@ export default class BlocklyComponent extends Component {
 
     ReactDOM.render(
       <BlocklyDrawer
-      showCategories={false}
-      injectOptions = {{
-        grid: {
-          spacing: 20,
-          length: 3,
-          colour: '#ccc',
-          snap: true
-        },
-        scrollbars: false,
-        zoom: {
-          startScale: 0.7,
-        }
-      }}
-      tools={[Count]}
-      style={{ height: `100%` }}
+        showCategories={false}
+        injectOptions={{
+          grid: {
+            spacing: 20,
+            length: 3,
+            colour: '#ccc',
+            snap: true,
+          },
+          scrollbars: false,
+          zoom: {
+            startScale: 0.7,
+          },
+        }}
+        tools={[Count]}
+        style={{ height: `100%` }}
       />,
-      document.getElementById('BlocklyRoot')
+      document.getElementById('BlocklyRoot'),
     );
   }
 
@@ -54,5 +54,5 @@ export default class BlocklyComponent extends Component {
     return (
       <div id="BlocklyRoot" style={{ height: `${this.state.height}px` }} />
     );
-  };
-};
+  }
+}

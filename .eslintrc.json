@@ -1,0 +1,13 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "no-undef": ["off"],
+    "quotes": ["off"],
+    "react/destructuring-assignment": ["off"],
+    "react/sort-comp": ["off"],
+    "react/jsx-filename-extension": ["off"],
+    "react/jsx-props-no-spreading": ["off"],
+    "react/prefer-stateless-function": ["off"],
+    "react/prop-types": ["off"]
+  }
+}
