@@ -1,27 +1,14 @@
 import React, { Component } from 'react';
-import Blockly from 'node-blockly/browser';
+import { inject, observer } from 'mobx-react';
 
-export default class DisplayCode extends Component {
-  constructor() {
-    super();
-    this.state = {
-      jsCode: '',
-    };
-  }
-
-  onClickEventHandler() {
-    const ws = window.Blockly.getMainWorkspace();
-    this.setState({
-      jsCode: Blockly.JavaScript.workspaceToCode(ws),
-    });
-  }
-
+class DisplayCode extends Component {
   render() {
     return (
       <div>
-        <button type="button" onClick={() => this.onClickEventHandler()}>conert to code</button>
-        <pre>{this.state.jsCode}</pre>
+        <pre>{this.props.store.blocklyCode}</pre>
       </div>
     );
   }
 }
+
+export default inject('store')(observer(DisplayCode));

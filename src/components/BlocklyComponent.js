@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { inject, observer } from 'mobx-react';
 import BlocklyDrawer from './BlocklyDrawer';
 import { Count } from '../blocks/Loop';
 
-export default class BlocklyComponent extends Component {
+class BlocklyComponent extends Component {
   constructor() {
     super();
     this.updateHeight = this.updateHeight.bind(this);
@@ -25,7 +26,10 @@ export default class BlocklyComponent extends Component {
 
     ReactDOM.render(
       <BlocklyDrawer
-        onChange={() => { console.log('hoge'); }}
+        onChange={() => {
+          const ws = window.Blockly.getMainWorkspace();
+          this.props.store.updateWorkspace(ws);
+        }}
         showCategories={false}
         injectOptions={{
           grid: {
@@ -56,3 +60,5 @@ export default class BlocklyComponent extends Component {
     );
   }
 }
+
+export default inject('store')(observer(BlocklyComponent));
