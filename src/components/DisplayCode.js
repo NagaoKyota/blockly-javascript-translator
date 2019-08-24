@@ -11,9 +11,8 @@ export default class DisplayCode extends Component {
 
   onClickEventHandler() {
     const ws = window.Blockly.getMainWorkspace();
-    const allBlocks = ws.getAllBlocks();
     this.setState({
-      jsCode: Blockly.JavaScript.blockToCode(allBlocks[0]),
+      jsCode: Blockly.JavaScript.workspaceToCode(ws),
     });
   }
 
@@ -21,7 +20,7 @@ export default class DisplayCode extends Component {
     return (
       <div>
         <button type="button" onClick={() => this.onClickEventHandler()}>conert to code</button>
-        <p>{this.state.jsCode}</p>
+        <pre>{this.state.jsCode}</pre>
       </div>
     );
   }

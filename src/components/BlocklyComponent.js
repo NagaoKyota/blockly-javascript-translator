@@ -23,9 +23,9 @@ export default class BlocklyComponent extends Component {
     window.addEventListener('resize', this.updateHeight);
     this.updateHeight();
 
-
     ReactDOM.render(
       <BlocklyDrawer
+        onChange={() => { console.log('hoge'); }}
         showCategories={false}
         injectOptions={{
           grid: {
