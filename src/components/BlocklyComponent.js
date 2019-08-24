@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { inject, observer } from 'mobx-react';
 import BlocklyDrawer from './BlocklyDrawer';
-import { Count } from '../blocks/Loop';
+import { For, While } from '../blocks/Loop';
 
 class BlocklyComponent extends Component {
   constructor() {
@@ -43,7 +43,7 @@ class BlocklyComponent extends Component {
             startScale: 0.7,
           },
         }}
-        tools={[Count]}
+        tools={[For, While]}
         style={{ height: `100%` }}
       />,
       document.getElementById('BlocklyRoot'),

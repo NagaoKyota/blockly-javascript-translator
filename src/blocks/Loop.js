@@ -1,14 +1,73 @@
-import * as generators from '../block-generators/Loop';
+import _ from 'lodash';
+import Blockly from 'node-blockly/browser';
 
 // eslint-disable-next-line import/prefer-default-export
-export const Count = generators.generateCount({
-  name: 'Count',
-  deletable: true,
-  color: 120,
-  range: {
-    min: 10,
-    max: 30,
-    ascending: true,
-    step: 10,
+export const For = {
+  block: {
+    init() {
+      this.setPreviousStatement(true);
+      this.jsonInit({
+        message0: '繰り返し%1回',
+        args0: [
+          {
+            type: 'field_number',
+            name: 'MAX_VALUE',
+            text: 5,
+            output: 'Number',
+          },
+        ],
+      });
+      this.appendStatementInput('DO');
+      this.setNextStatement(true);
+      this.setColour(120);
+    },
   },
-});
+  category: 'ループ',
+  generator: (block) => {
+    const branch = Blockly.JavaScript.statementToCode(block, 'DO');
+    const max = block.getFieldValue('MAX_VALUE');
+    const code = `
+      for (let i = 1; i <= ${max}; i++) {
+        ${branch}
+      }
+    `;
+    return code;
+  },
+  name: 'For',
+};
+
+export const While = {
+  block: {
+    init() {
+      this.setPreviousStatement(true);
+      this.jsonInit({
+        message0: 'もし%1なら繰り返し',
+        args0: [
+          {
+            type: 'field_dropdown',
+            name: 'BOOL',
+            options: [
+              ['真', 'true'],
+              ['偽', 'false'],
+            ],
+          },
+        ],
+      });
+      this.appendStatementInput('DO');
+      this.setNextStatement(true);
+      this.setColour(120);
+    },
+  },
+  category: 'ループ',
+  generator: (block) => {
+    const branch = Blockly.JavaScript.statementToCode(block, 'DO');
+    const flag = block.getFieldValue('BOOL');
+    const code = `
+      while (${flag}) {
+        ${branch}
+      }
+    `;
+    return code;
+  },
+  name: 'While',
+};
