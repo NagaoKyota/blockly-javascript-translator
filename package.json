@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "js-beautify": "^1.10.2",
     "lodash": "^4.17.15",
     "mobx": "^5.13.0",
     "mobx-react": "^6.1.3",
