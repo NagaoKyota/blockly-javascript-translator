@@ -22,7 +22,7 @@ export const If = {
   category: '論理',
   generator: (block) => {
     const branch = Blockly.JavaScript.statementToCode(block, 'DO');
-    const flag = Blockly.JavaScript.statementToCode(block, 'BOOL_TO_CHECK');
+    const flag = Blockly.JavaScript.statementToCode(block, 'BOOL_TO_CHECK') || undefined;
     const code = `
       if (${flag}) {
         ${branch}
@@ -118,10 +118,10 @@ export const Compare = {
   category: '論理',
   generator: (block) => {
     let A = Blockly.JavaScript.statementToCode(block, 'A');
-    A = A ? `(${A})` : '';
+    A = A ? `(${A})` : undefined;
     const operator = block.getFieldValue('OPERATOR');
     let B = Blockly.JavaScript.statementToCode(block, 'B');
-    B = B ? `(${B})` : '';
+    B = B ? `(${B})` : undefined;
     return `${A} ${operator} ${B}`;
   },
   name: 'Compare',
@@ -159,10 +159,10 @@ export const AndOr = {
   category: '論理',
   generator: (block) => {
     let A = Blockly.JavaScript.statementToCode(block, 'A');
-    A = A ? `(${A})` : '';
+    A = A ? `(${A})` : undefined;
     const operator = block.getFieldValue('OPERATOR');
     let B = Blockly.JavaScript.statementToCode(block, 'B');
-    B = B ? `(${B})` : '';
+    B = B ? `(${B})` : undefined;
     return `${A} ${operator} ${B}`;
   },
   name: 'AndOr',
@@ -187,7 +187,7 @@ export const Not = {
   },
   category: '論理',
   generator: (block) => {
-    const A = Blockly.JavaScript.statementToCode(block, 'A');
+    const A = Blockly.JavaScript.statementToCode(block, 'A') || undefined;
     return `!${A}`;
   },
   name: 'Not',

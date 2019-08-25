@@ -11,17 +11,31 @@ const beautifyOptions = {
   indent_scripts: "keep",
   brace_style: "end-expand",
   space_before_conditional: true,
-  wrap_line_length: "40",
+  wrap_line_length: "0",
 };
 
 class DisplayCode extends Component {
   render() {
     return (
       <div>
-        JavaScript
-        <Highlight language="js" className={styles}>
-          {jsBeautify.js(this.props.store.blocklyCode, beautifyOptions)}
-        </Highlight>
+        <div>
+          JavaScript
+          <Highlight language="js" className={styles}>
+            {jsBeautify.js(this.props.store.blocklyCode, beautifyOptions)}
+          </Highlight>
+        </div>
+        <div>
+          Python(※ Now JavaScript)
+          <Highlight language="js" className={styles}>
+            {jsBeautify.js(this.props.store.blocklyCode, beautifyOptions)}
+          </Highlight>
+        </div>
+        <div>
+          PHP(※ Now JavaScript)
+          <Highlight language="js" className={styles}>
+            {jsBeautify.js(this.props.store.blocklyCode, beautifyOptions)}
+          </Highlight>
+        </div>
       </div>
     );
   }

@@ -45,7 +45,7 @@ class BlocklyComponent extends Component {
           },
           scrollbars: false,
           zoom: {
-            startScale: 0.9,
+            startScale: 0.8,
           },
         }}
         tools={[Start, For, While, If, Bool, Num, Compare, AndOr, Not]}
