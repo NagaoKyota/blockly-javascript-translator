@@ -1,11 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Blockly from 'node-blockly/browser';
 import { Provider } from 'mobx-react';
 import { Container, Col, Row } from 'react-bootstrap';
+import JA from 'node-blockly/lib/i18n/ja';
 import Store from './Store';
 import BlocklyComponent from './components/BlocklyComponent';
 import DisplayCode from './components/DisplayCode';
+
+Blockly.setLocale(JA);
 
 class App extends React.Component {
   render() {
