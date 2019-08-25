@@ -7,7 +7,7 @@ class Store {
   }
 
   updateWorkspace(workspace) {
-    this.blocklyCode = Blockly.JavaScript.workspaceToCode(workspace);
+    this.blocklyCode = Blockly.JavaScript.workspaceToCode(workspace).replace(/^\s+/, '');
   }
 }
 
