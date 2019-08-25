@@ -1,6 +1,5 @@
 import Blockly from 'node-blockly/browser';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getVariable = {
   block: {
     init() {
@@ -13,7 +12,6 @@ export const getVariable = {
             variable: 'item',
           },
         ],
-        style: "variable_blocks",
       });
       this.setColour(210);
       this.setOutput(true);
@@ -45,7 +43,6 @@ export const setVariable = {
             name: 'VALUE',
           },
         ],
-        style: "variable_blocks",
       });
       this.setNextStatement(true);
       this.setColour(210);

@@ -8,6 +8,7 @@ import {
   If, Bool, Num, Compare, AndOr, Not,
 } from '../blocks/Logic';
 import { getVariable, setVariable } from '../blocks/Variable';
+import { voidFunc, returnFunc, ifReturn } from '../blocks/Function';
 
 class BlocklyComponent extends Component {
   constructor() {
@@ -49,7 +50,8 @@ class BlocklyComponent extends Component {
             startScale: 0.8,
           },
         }}
-        tools={[Start, For, While, If, Bool, Num, Compare, AndOr, Not, getVariable, setVariable]}
+        // eslint-disable-next-line max-len
+        tools={[Start, For, While, If, Bool, Num, Compare, AndOr, Not, getVariable, setVariable, voidFunc, returnFunc, ifReturn]}
         style={{ height: `100%` }}
         disableOrphans
       />,
