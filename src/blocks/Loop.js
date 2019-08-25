@@ -25,7 +25,7 @@ export const For = {
     const branch = Blockly.JavaScript.statementToCode(block, 'DO');
     const max = block.getFieldValue('MAX_VALUE');
     const code = `
-      for (let i = 1; i <= ${max}; i++) {
+      for (let i = 1; i <= ${max}; i += 1) {
         ${branch}
       }
     `;

@@ -25,15 +25,17 @@ export default class BlocklyToolbox extends Component {
       const blocks = groupedByCategory[key].map((type) => <Block type={type} key={type} />);
       // eslint-disable-next-line no-mixed-operators, max-len
       const categoryAppearance = appearance && appearance.categories && appearance.categories[key] || {};
-      return (
-        <Category
-          {...categoryAppearance}
-          key={key}
-          name={key}
-        >
-          {blocks}
-        </Category>
-      );
+      if (key !== 'root') {
+        return (
+          <Category
+            {...categoryAppearance}
+            key={key}
+            name={key}
+          >
+            {blocks}
+          </Category>
+        );
+      }
     });
 
     return (

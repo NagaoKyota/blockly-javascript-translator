@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { inject, observer } from 'mobx-react';
 import BlocklyDrawer from './BlocklyDrawer';
+import { Start } from '../blocks/Start';
 import { For, While } from '../blocks/Loop';
-import { If, Bool, Num, Compare, AndOr, Not } from '../blocks/Logic';
+import {
+  If, Bool, Num, Compare, AndOr, Not,
+} from '../blocks/Logic';
 
 class BlocklyComponent extends Component {
   constructor() {
@@ -27,6 +30,7 @@ class BlocklyComponent extends Component {
 
     ReactDOM.render(
       <BlocklyDrawer
+        workspaceXML={'<xml><block type="START" y="20" /></xml>'}
         onChange={() => {
           const ws = window.Blockly.getMainWorkspace();
           this.props.store.updateWorkspace(ws);
@@ -41,11 +45,12 @@ class BlocklyComponent extends Component {
           },
           scrollbars: false,
           zoom: {
-            startScale: 0.7,
+            startScale: 0.9,
           },
         }}
-        tools={[For, While, If, Bool, Num, Compare, AndOr, Not]}
+        tools={[Start, For, While, If, Bool, Num, Compare, AndOr, Not]}
         style={{ height: `100%` }}
+        disableOrphans
       />,
       document.getElementById('BlocklyRoot'),
     );
