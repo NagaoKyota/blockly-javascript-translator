@@ -10,7 +10,6 @@ import BlocklyComponent from './components/BlocklyComponent';
 import DisplayCode from './components/DisplayCode';
 
 Blockly.setLocale(JA);
-Blockly.BlockSvg.START_HAT = true;
 
 class App extends React.Component {
   render() {
