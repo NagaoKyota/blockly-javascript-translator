@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import * as jsBeautify from 'js-beautify';
+import Highlight from 'react-highlight.js';
 
 const beautifyOptions = {
   indent_size: "2",
@@ -16,7 +17,9 @@ class DisplayCode extends Component {
   render() {
     return (
       <div>
-        <pre>{jsBeautify.js(this.props.store.blocklyCode, beautifyOptions)}</pre>
+        <Highlight language="js">
+          {jsBeautify.js(this.props.store.blocklyCode, beautifyOptions)}
+        </Highlight>
       </div>
     );
   }
