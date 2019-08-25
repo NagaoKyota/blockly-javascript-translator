@@ -10,13 +10,14 @@ export const For = {
           {
             type: 'field_number',
             name: 'MAX_VALUE',
+            value: 5,
             output: 'Number',
           },
         ],
       });
       this.appendStatementInput('DO');
       this.setNextStatement(true);
-      this.setColour(120);
+      this.setColour(150);
     },
   },
   category: 'ループ',
@@ -52,7 +53,7 @@ export const While = {
       });
       this.appendStatementInput('DO');
       this.setNextStatement(true);
-      this.setColour(120);
+      this.setColour(150);
     },
   },
   category: 'ループ',

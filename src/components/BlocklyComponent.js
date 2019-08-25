@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { inject, observer } from 'mobx-react';
 import BlocklyDrawer from './BlocklyDrawer';
 import { For, While } from '../blocks/Loop';
-import { If, Bool, Compare, AndOr, Not } from '../blocks/Logic';
+import { If, Bool, Num, Compare, AndOr, Not } from '../blocks/Logic';
 
 class BlocklyComponent extends Component {
   constructor() {
@@ -44,7 +44,7 @@ class BlocklyComponent extends Component {
             startScale: 0.7,
           },
         }}
-        tools={[For, While, If, Bool, Compare, AndOr, Not]}
+        tools={[For, While, If, Bool, Num, Compare, AndOr, Not]}
         style={{ height: `100%` }}
       />,
       document.getElementById('BlocklyRoot'),

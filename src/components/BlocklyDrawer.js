@@ -55,6 +55,10 @@ class BlocklyDrawer extends Component {
         const xmlText = Blockly.Xml.domToText(xml);
         this.props.onChange(code, xmlText);
       });
+
+      if (this.props.disableOrphans) {
+        this.workspacePlayground.addChangeListener(Blockly.Events.disableOrphans);
+      }
     }
   }
 
@@ -128,6 +132,7 @@ BlocklyDrawer.defaultProps = {
   appearance: {},
   className: '',
   style: {},
+  disableOrphans: false,
 };
 
 styles = {

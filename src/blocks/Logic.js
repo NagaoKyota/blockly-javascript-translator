@@ -61,6 +61,30 @@ export const Bool = {
   name: 'Bool',
 };
 
+export const Num = {
+  block: {
+    init() {
+      this.jsonInit({
+        message0: `%1`,
+        args0: [
+          {
+            type: 'field_number',
+            name: 'NUMBER',
+          },
+        ],
+      });
+      this.setColour(120);
+      this.setOutput(true, 'Number');
+    },
+  },
+  category: '論理',
+  generator: (block) => {
+    const num = block.getFieldValue('NUMBER');
+    return `${num}`;
+  },
+  name: 'Num',
+};
+
 export const Compare = {
   block: {
     init() {
@@ -68,7 +92,7 @@ export const Compare = {
         message0: `%1%2%3`,
         args0: [
           {
-            type: 'field_number',
+            type: 'input_value',
             name: 'A',
           },
           {
@@ -81,20 +105,23 @@ export const Compare = {
             ],
           },
           {
-            type: 'field_number',
+            type: 'input_value',
             name: 'B',
           },
         ],
       });
       this.setColour(120);
+      this.setInputsInline(true);
       this.setOutput(true, 'Boolean');
     },
   },
   category: '論理',
   generator: (block) => {
-    const A = block.getFieldValue('A');
+    let A = Blockly.JavaScript.statementToCode(block, 'A');
+    A = A ? `(${A})` : '';
     const operator = block.getFieldValue('OPERATOR');
-    const B = block.getFieldValue('B');
+    let B = Blockly.JavaScript.statementToCode(block, 'B');
+    B = B ? `(${B})` : '';
     return `${A} ${operator} ${B}`;
   },
   name: 'Compare',
@@ -131,9 +158,11 @@ export const AndOr = {
   },
   category: '論理',
   generator: (block) => {
-    const A = Blockly.JavaScript.statementToCode(block, 'A');
+    let A = Blockly.JavaScript.statementToCode(block, 'A');
+    A = A ? `(${A})` : '';
     const operator = block.getFieldValue('OPERATOR');
-    const B = Blockly.JavaScript.statementToCode(block, 'B');
+    let B = Blockly.JavaScript.statementToCode(block, 'B');
+    B = B ? `(${B})` : '';
     return `${A} ${operator} ${B}`;
   },
   name: 'AndOr',
