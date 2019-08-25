@@ -1,7 +1,5 @@
-import _ from 'lodash';
 import Blockly from 'node-blockly/browser';
 
-// eslint-disable-next-line import/prefer-default-export
 export const For = {
   block: {
     init() {
@@ -12,7 +10,6 @@ export const For = {
           {
             type: 'field_number',
             name: 'MAX_VALUE',
-            text: 5,
             output: 'Number',
           },
         ],
