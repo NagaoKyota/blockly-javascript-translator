@@ -4,6 +4,11 @@ import Blockly from 'node-blockly/browser';
 class Store {
   constructor() {
     this.blocklyCode = '';
+    this.jsCode = '';
+  }
+
+  setInputCode(inputCode) {
+    this.blocklyCode = inputCode;
   }
 
   updateWorkspace(workspace) {
@@ -13,6 +18,8 @@ class Store {
 
 decorate(Store, {
   blocklyCode: observable,
+  jsCode: observable,
+  setInputCode: action,
   updateWorkspace: action,
 });
 
