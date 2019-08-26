@@ -18,24 +18,10 @@ class DisplayCode extends Component {
   render() {
     return (
       <div>
-        <div>
-          JavaScript
-          <Highlight language="js" className={styles}>
-            {jsBeautify.js(this.props.store.blocklyCode, beautifyOptions)}
-          </Highlight>
-        </div>
-        <div>
-          Python(※ Now JavaScript)
-          <Highlight language="js" className={styles}>
-            {jsBeautify.js(this.props.store.blocklyCode, beautifyOptions)}
-          </Highlight>
-        </div>
-        <div>
-          PHP(※ Now JavaScript)
-          <Highlight language="js" className={styles}>
-            {jsBeautify.js(this.props.store.blocklyCode, beautifyOptions)}
-          </Highlight>
-        </div>
+        JavaScript
+        <Highlight language="js" className={styles}>
+          {jsBeautify.js(this.props.store.blocklyCode, beautifyOptions)}
+        </Highlight>
       </div>
     );
   }
