@@ -25,7 +25,7 @@ export const For = {
     const branch = Blockly.JavaScript.statementToCode(block, 'DO');
     const max = block.getFieldValue('MAX_VALUE');
     const code = `
-      for (let i = 1; i <= ${max}; i++) {
+      for (let count = 1; count <= ${max}; count++) {
         ${branch}
       }
     `;
@@ -42,12 +42,9 @@ export const While = {
         message0: 'もし%1なら繰り返し',
         args0: [
           {
-            type: 'field_dropdown',
+            type: 'input_value',
             name: 'BOOL',
-            options: [
-              ['真', 'true'],
-              ['偽', 'false'],
-            ],
+            check: 'Boolean',
           },
         ],
       });
@@ -59,7 +56,7 @@ export const While = {
   category: 'ループ',
   generator: (block) => {
     const branch = Blockly.JavaScript.statementToCode(block, 'DO');
-    const flag = block.getFieldValue('BOOL');
+    const flag = Blockly.JavaScript.statementToCode(block, 'BOOL') || undefined;
     const code = `
       while (${flag}) {
         ${branch}

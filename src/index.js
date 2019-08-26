@@ -20,10 +20,10 @@ class App extends React.Component {
       <Provider {...stores}>
         <Container fluid style={{ marginTop: `10px` }}>
           <Row>
-            <Col md={7}>
+            <Col md={6}>
               <BlocklyComponent />
             </Col>
-            <Col md={5}>
+            <Col md={6}>
               <DisplayCode />
             </Col>
           </Row>
