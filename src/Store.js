@@ -8,6 +8,18 @@ class Store {
     this.blocklyDesign = '';
   }
 
+  moveForward(value) {
+    console.log('move: ', value);
+  }
+
+  turnRight(value) {
+    console.log('right: ', value);
+  }
+
+  turnLeft(value) {
+    console.log('left: ', value);
+  }
+
   updateWorkspace(workspace) {
     const allBlocks = workspace.getAllBlocks();
     let filtered;
