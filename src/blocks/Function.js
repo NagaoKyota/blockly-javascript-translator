@@ -76,7 +76,7 @@ export const returnFunc = {
 export const ifReturn = {
   block: {
     init() {
-      this.setPreviousStatement(true);
+      this.setPreviousStatement(true, 'JS');
       this.jsonInit({
         message0: 'もし%1なら 返り値%2',
         args0: [
@@ -90,7 +90,7 @@ export const ifReturn = {
           },
         ],
       });
-      this.setInputsInline(true);
+      this.setInputsInline(true, 'JS');
       this.setColour(250);
     },
   },

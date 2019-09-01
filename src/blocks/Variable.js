@@ -29,8 +29,9 @@ export const getVariable = {
 export const setVariable = {
   block: {
     init() {
-      this.setPreviousStatement(true);
+      this.setPreviousStatement(true, 'JS');
       this.jsonInit({
+        type: 'JS',
         message0: '%1に%2を代入',
         args0: [
           {
@@ -44,9 +45,8 @@ export const setVariable = {
           },
         ],
       });
-      this.setNextStatement(true);
+      this.setNextStatement(true, 'JS');
       this.setColour(210);
-      this.setInputsInline(true);
     },
   },
   category: '変数',
