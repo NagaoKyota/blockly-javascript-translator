@@ -3,7 +3,7 @@ import Blockly from 'node-blockly/browser';
 export const For = {
   block: {
     init() {
-      this.setPreviousStatement(true);
+      this.setPreviousStatement(true, 'JS');
       this.jsonInit({
         message0: '繰り返し%1回',
         args0: [
@@ -15,8 +15,8 @@ export const For = {
           },
         ],
       });
-      this.appendStatementInput('DO');
-      this.setNextStatement(true);
+      this.appendStatementInput('DO').setCheck(['JS']);
+      this.setNextStatement(true, 'JS');
       this.setColour(150);
     },
   },
@@ -37,7 +37,7 @@ export const For = {
 export const While = {
   block: {
     init() {
-      this.setPreviousStatement(true);
+      this.setPreviousStatement(true, 'JS');
       this.jsonInit({
         message0: 'もし%1なら繰り返し',
         args0: [
@@ -48,8 +48,8 @@ export const While = {
           },
         ],
       });
-      this.appendStatementInput('DO');
-      this.setNextStatement(true);
+      this.appendStatementInput('DO').setCheck(['JS']);
+      this.setNextStatement(true, 'JS');
       this.setColour(150);
     },
   },

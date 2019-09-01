@@ -3,7 +3,7 @@ import Blockly from 'node-blockly/browser';
 export const If = {
   block: {
     init() {
-      this.setPreviousStatement(true);
+      this.setPreviousStatement(true, 'JS');
       this.jsonInit({
         message0: 'もし%1なら',
         args0: [
@@ -14,8 +14,8 @@ export const If = {
           },
         ],
       });
-      this.appendStatementInput('DO');
-      this.setNextStatement(true);
+      this.appendStatementInput('DO').setCheck(['JS']);
+      this.setNextStatement(true, 'JS');
       this.setColour(120);
     },
   },

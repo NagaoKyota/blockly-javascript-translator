@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { inject, observer } from 'mobx-react';
 import BlocklyDrawer from './BlocklyDrawer';
-import { Start } from '../blocks/Start';
+import { Start, Design } from '../blocks/Start';
 import { For, While } from '../blocks/Loop';
 import {
   If, Bool, Num, Compare, AndOr, Not,
 } from '../blocks/Logic';
-import { getVariable, setVariable } from '../blocks/Variable';
-import { voidFunc, returnFunc, ifReturn } from '../blocks/Function';
+// import { getVariable, setVariable } from '../blocks/Variable';
+// import { voidFunc, returnFunc, ifReturn } from '../blocks/Function';
+import { changeColor, changeFontSize } from '../blocks/Design';
 
 class BlocklyComponent extends Component {
   constructor() {
@@ -32,7 +33,7 @@ class BlocklyComponent extends Component {
 
     ReactDOM.render(
       <BlocklyDrawer
-        workspaceXML={'<xml><block type="START" /></xml>'}
+        workspaceXML={'<xml><block type="START" /><block type="DESIGN" x="300" /></xml>'}
         onChange={() => {
           const ws = window.Blockly.getMainWorkspace();
           this.props.store.updateWorkspace(ws);
@@ -50,8 +51,8 @@ class BlocklyComponent extends Component {
             startScale: 0.8,
           },
         }}
-        // eslint-disable-next-line max-len
-        tools={[Start, For, While, If, Bool, Num, Compare, AndOr, Not, getVariable, setVariable, voidFunc, returnFunc, ifReturn]}
+        tools={[Start, Design, For, While, If, Bool, Num, Compare, AndOr, Not,
+          changeColor, changeFontSize]}
         style={{ height: `100%` }}
         disableOrphans
       />,
