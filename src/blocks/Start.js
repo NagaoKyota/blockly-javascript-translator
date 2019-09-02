@@ -1,5 +1,3 @@
-import Blockly from 'node-blockly/browser';
-
 export const Start = {
   block: {
     init() {

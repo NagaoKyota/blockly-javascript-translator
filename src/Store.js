@@ -1,23 +1,53 @@
 import _ from 'lodash';
-import { action, decorate, observable } from 'mobx';
 import Blockly from 'node-blockly/browser';
+import { action, decorate, observable } from 'mobx';
+import { Shape, Graphics } from "@createjs/easeljs";
 
 class Store {
   constructor() {
+    this.isExecute = false;
     this.blocklyCode = '';
     this.blocklyDesign = '';
+    this.stage = null;
+    this.posX = 200;
+    this.posY = 200;
+    this.angle = 270;
+  }
+
+  reset() {
+    this.stage.removeAllChildren();
+    this.stage.clear();
+
+    this.isExecute = false;
+    this.stage = null;
+    this.posX = 200;
+    this.posY = 200;
+    this.angle = 270;
   }
 
   moveForward(value) {
-    console.log('move: ', value);
+    const endX = this.posX + value * Math.cos(this.angle * (Math.PI / 180));
+    const endY = this.posY + value * Math.sin(this.angle * (Math.PI / 180));
+
+    const g = new Graphics();
+    g.beginStroke("#000");
+    g.setStrokeStyle(3);
+    g.moveTo(this.posX, this.posY);
+    g.lineTo(endX, endY);
+    g.endStroke();
+    this.stage.addChild(new Shape(g));
+    this.stage.update();
+
+    this.posX = endX;
+    this.posY = endY;
   }
 
   turnRight(value) {
-    console.log('right: ', value);
+    this.angle = (this.angle + value) % 360;
   }
 
   turnLeft(value) {
-    console.log('left: ', value);
+    this.angle = (this.angle - value) % 360;
   }
 
   updateWorkspace(workspace) {
@@ -32,8 +62,14 @@ class Store {
 }
 
 decorate(Store, {
+  isExecute: observable,
   blocklyCode: observable,
   blocklyDesign: observable,
+  stage: observable,
+  posX: observable,
+  posY: observable,
+  angle: observable,
+  reset: action,
   updateWorkspace: action,
 });
 

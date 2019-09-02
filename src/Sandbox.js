@@ -32,6 +32,7 @@ class Sandbox {
     this._removeChild();
   }
 
+  // eslint-disable-next-line no-underscore-dangle
   _removeChild() {
     document.body.removeChild(this.iframe);
   }
