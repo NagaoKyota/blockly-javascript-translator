@@ -8,6 +8,7 @@ import JA from 'node-blockly/lib/i18n/ja';
 import Store from './Store';
 import BlocklyComponent from './components/BlocklyComponent';
 import DisplayCode from './components/DisplayCode';
+import TurtleAnimation from './components/TurtleAnimation';
 import AdaptDesign from './components/AdaptDesign';
 
 Blockly.setLocale(JA);
@@ -26,6 +27,7 @@ class App extends React.Component {
             </Col>
             <Col md={6}>
               <DisplayCode />
+              <TurtleAnimation />
               <AdaptDesign />
             </Col>
           </Row>

@@ -7,8 +7,7 @@ import { For, While } from '../blocks/Loop';
 import {
   If, Bool, Num, Compare, AndOr, Not,
 } from '../blocks/Logic';
-// import { getVariable, setVariable } from '../blocks/Variable';
-// import { voidFunc, returnFunc, ifReturn } from '../blocks/Function';
+import { moveForward, turnRight, turnLeft } from '../blocks/Turtle';
 import { changeColor, changeFontSize } from '../blocks/Design';
 
 class BlocklyComponent extends Component {
@@ -52,6 +51,7 @@ class BlocklyComponent extends Component {
           },
         }}
         tools={[Start, Design, For, While, If, Bool, Num, Compare, AndOr, Not,
+          moveForward, turnRight, turnLeft,
           changeColor, changeFontSize]}
         style={{ height: `100%` }}
         disableOrphans
