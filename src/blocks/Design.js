@@ -19,8 +19,8 @@ export const changeColor = {
   },
   category: 'デザイン',
   generator: (block) => {
-    const variable = block.getFieldValue('COLOR');
-    return `color: '${variable}', `;
+    const color = block.getFieldValue('COLOR');
+    return `color: '${color}', `;
   },
   name: 'changeColor',
 };
@@ -36,7 +36,7 @@ export const changeFontSize = {
             type: 'field_number',
             name: 'SIZE',
             value: 20,
-            max: 60,
+            max: 200,
           },
         ],
       });
@@ -46,8 +46,8 @@ export const changeFontSize = {
   },
   category: 'デザイン',
   generator: (block) => {
-    const variable = block.getFieldValue('SIZE');
-    return `fontSize: '${variable}px',`;
+    const size = block.getFieldValue('SIZE');
+    return `fontSize: '${size}px',`;
   },
   name: 'changeFontSize',
 };
